@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include <Windows.h>
 #include <string.h>
-#include <locale.h>
 
 #define MAP_WIDTH 23
 #define MAP_HEIGHT 15
@@ -41,10 +40,6 @@ void saveRanking(char* playerName, int score);
 void showRanking();
 
 int main(void) {
-    SetConsoleOutputCP(65001);
-    SetConsoleCP(65001);
-    setlocale(LC_ALL,"");
-    system("cls");
     // 1. 난수 생성기 초기화 (가장 먼저 실행되어야 함!)
     srand((unsigned int)time(NULL));
 
