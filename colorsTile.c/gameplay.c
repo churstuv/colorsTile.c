@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdbool.h>
 #include <Windows.h>
+#include "ranking.h"
 
 #define MAP_WIDTH 23
 #define MAP_HEIGHT 15
@@ -88,6 +89,12 @@ int main(void) {
 
     printf("\n=== GAME OVER ===\n");
     printf("최종 점수: %d 점\n", score);
+
+    char playerName[50];
+    printf("플레이어의 이름을 입력하시오 : ");
+    scanf("%s", playerName);
+    saveRanking(playerName, score);
+    showRanking();
 
     return 0;
 }

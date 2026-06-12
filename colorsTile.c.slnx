@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="colorsTile.c/colorsTile.c.vcxproj" />
+  <Project Path="colorsTile.c/colorsTile.c.vcxproj" Id="e55f3b91-c1cb-4fed-a360-c8fe984d3f7b" />
 </Solution>
