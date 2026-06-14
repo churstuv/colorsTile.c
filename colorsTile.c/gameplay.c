@@ -50,15 +50,15 @@ int main(void) {
     while (gameTime > 0) {
         system("cls"); // 화면 지우기 (Windows 전용)
 
-        printf("=== Color Tiles 백엔드 테스트 ===\n");
-        printf("현재 점수: %d 점 | 남은 시간: %d 초\n\n", score, gameTime);
+        printf("=== Color Tiles code test ===\n");
+        printf("score: %d point | time: %d sec\n\n", score, gameTime);
 
         // 맵 출력
         printBoard();
 
         // 교착 상태 검사 예시
         if (checkDeadlock() == true) {
-            printf("\n[교착 상태 감지!] 타일을 자동으로 재배치합니다.\n");
+            printf("\ndeadlock\n");
             Sleep(2000); // 2초 대기
             shuffleBoard();
             continue;
@@ -66,24 +66,24 @@ int main(void) {
 
         // 터미널 입력 테스트용 (나중에 프론트엔드가 마우스 클릭 좌표로 대체할 부분)
         int inputX, inputY;
-        printf("\n클릭할 빈 칸의 좌표를 입력하세요 (X Y 입력, 종료는 -1 -1): ");
+        printf("\ntype the number: ");
         scanf_s("%d %d", &inputX, &inputY);
 
         if (inputX == -1 && inputY == -1) {
-            printf("게임을 종료합니다.\n");
+            printf("game over.\n");
             break;
         }
 
         // 입력 좌표 예외 처리
         if (inputX < 0 || inputX >= MAP_WIDTH || inputY < 0 || inputY >= MAP_HEIGHT) {
-            printf("잘못된 범위의 좌표입니다!\n");
+            printf("wrong number!\n");
             Sleep(1000);
             continue;
         }
 
         // 규칙 1: 블록이 존재하는 칸을 클릭했을 때는 아무런 일도 발생하지 않음
         if (board[inputY][inputX].isExists) {
-            printf("타일이 이미 존재하는 칸은 클릭할 수 없습니다!\n");
+            printf("tile already exist!\n");
             Sleep(1000);
             continue;
         }
@@ -96,10 +96,10 @@ int main(void) {
     }
 
     printf("\n=== GAME OVER ===\n");
-    printf("최종 점수: %d 점\n", score);
+    printf("score: %d point\n", score);
 
     char playerName[50];
-    printf("플레이어의 이름을 입력하시오 : ");
+    printf("player's name : ");
     scanf("%s", playerName);
     saveRanking(playerName, score);
     showRanking();
@@ -170,7 +170,7 @@ void searchAndMatch(int startX, int startY) {
     struct Tile* rightTile = NULL;
     struct Tile* upTile = NULL;
     struct Tile* downTile = NULL;
-    printf("\n(%d, %d) 좌표를 기준으로 4방향 탐색을 수행해야 합니다.\n", startX, startY);
+    printf("\n(%d, %d) check tiles.\n", startX, startY);
     for (int x = startX - 1; x >= 0; x--) {
         if (board[startY][x].isExists == true) {
             leftTile = &board[startY][x];
