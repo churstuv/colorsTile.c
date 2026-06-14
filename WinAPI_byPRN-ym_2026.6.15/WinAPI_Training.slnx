@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="WinAPI_Training.vcxproj" Id="97098735-f287-45b9-8c2d-fdf2f5cdda99" />
+</Solution>
